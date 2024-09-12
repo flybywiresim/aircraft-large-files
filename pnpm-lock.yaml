@@ -1,0 +1,30 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      split-file:
+        specifier: ^2.3.0
+        version: 2.3.0
+
+packages:
+
+  bluebird@3.7.2:
+    resolution: {integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==}
+
+  split-file@2.3.0:
+    resolution: {integrity: sha512-dc/0SDKvjtSjUI999vkclWQAk5xhD86pKEWWL2ULR6WrHI9/euIEMG/JSUbwbNW8IC+gYLJqynSGHwlOVmSwGA==}
+    hasBin: true
+
+snapshots:
+
+  bluebird@3.7.2: {}
+
+  split-file@2.3.0:
+    dependencies:
+      bluebird: 3.7.2
