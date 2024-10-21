@@ -1,0 +1,50 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      split-file:
+        specifier: ^2.3.0
+        version: 2.3.0
+    devDependencies:
+      husky:
+        specifier: ^9.1.6
+        version: 9.1.6
+      just-pnpm:
+        specifier: ^1.0.2
+        version: 1.0.2
+
+packages:
+
+  bluebird@3.7.2:
+    resolution: {integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==}
+
+  husky@9.1.6:
+    resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  just-pnpm@1.0.2:
+    resolution: {integrity: sha512-a/LtVYjTy1Z1yBl3kFEsic313J8MZ29ZEAFrw1snFOY7/x6Afy1VO2zAgtAlUjIgexOt8TRCRCXo1J+PABIo/Q==}
+    hasBin: true
+
+  split-file@2.3.0:
+    resolution: {integrity: sha512-dc/0SDKvjtSjUI999vkclWQAk5xhD86pKEWWL2ULR6WrHI9/euIEMG/JSUbwbNW8IC+gYLJqynSGHwlOVmSwGA==}
+    hasBin: true
+
+snapshots:
+
+  bluebird@3.7.2: {}
+
+  husky@9.1.6: {}
+
+  just-pnpm@1.0.2: {}
+
+  split-file@2.3.0:
+    dependencies:
+      bluebird: 3.7.2

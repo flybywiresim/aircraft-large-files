@@ -1,0 +1,17 @@
+{
+  "name": "aircraft-large-files",
+  "author": "FlyByWire Simulations",
+  "license": "GPL-3.0",
+  "scripts": {
+    "chunk": "node scripts/chunkFiles.js",
+    "unchunk": "node scripts/unchunkFiles.js",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "split-file": "^2.3.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "just-pnpm": "^1.0.2"
+  }
+}
