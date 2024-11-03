@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-undef */
 
 const fs = require('fs');
 const path = require('path');
@@ -8,10 +9,13 @@ const MAX_CHUNK_SIZE = 100 * 1024 * 1024; // 100 MiB
 const allowedFolders = ['fbw-a380x', 'fbw-a32nx', 'fbw-common'];
 const inputPath = process.argv[2] || '.';
 
-const relativePath = (dir) => path.relative(process.cwd(), dir)
+const relativePath = (dir) => path.relative(process.cwd(), dir);
 
 const isFolderAllowed = (folderPath) => {
-  return allowedFolders.some(allowedFolder => relativePath(folderPath).startsWith(allowedFolder)) && fs.existsSync(folderPath);
+  return (
+    allowedFolders.some((allowedFolder) => relativePath(folderPath).startsWith(allowedFolder)) &&
+    fs.existsSync(folderPath)
+  );
 };
 
 const deleteExistingChunks = (filePath) => {
@@ -20,7 +24,7 @@ const deleteExistingChunks = (filePath) => {
   const pattern = new RegExp(`^${fileName}\\.*\\.part\\d{2}$`);
 
   const files = fs.readdirSync(dir);
-  files.forEach(file => {
+  files.forEach((file) => {
     if (pattern.test(file)) {
       fs.unlinkSync(path.join(dir, file));
       console.log(`Deleted existing chunk: ${path.join(relativePath(dir), file)}`);

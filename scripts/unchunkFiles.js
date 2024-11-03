@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-undef */
 
 const fs = require('fs');
 const path = require('path');
@@ -7,10 +8,13 @@ const splitFile = require('split-file');
 const allowedFolders = ['fbw-a380x', 'fbw-a32nx', 'fbw-common'];
 const inputPath = process.argv[2] || '.';
 
-const relativePath = (dir) => path.relative(process.cwd(), dir)
+const relativePath = (dir) => path.relative(process.cwd(), dir);
 
 const isFolderAllowed = (folderPath) => {
-  return allowedFolders.some(allowedFolder => relativePath(folderPath).startsWith(allowedFolder)) && fs.existsSync(folderPath);
+  return (
+    allowedFolders.some((allowedFolder) => relativePath(folderPath).startsWith(allowedFolder)) &&
+    fs.existsSync(folderPath)
+  );
 };
 
 const unchunkFilesInFolder = async (folderPath) => {
@@ -35,14 +39,14 @@ const unchunkFilesInFolder = async (folderPath) => {
       return numA - numB;
     });
 
-    const chunkPaths = chunkedFiles.map(file => path.join(folderPath, file));
+    const chunkPaths = chunkedFiles.map((file) => path.join(folderPath, file));
     const outputFilePath = path.join(folderPath, baseName);
 
     try {
       await splitFile.mergeFiles(chunkPaths, outputFilePath);
       console.log(`Merged chunks into: ${relativePath(outputFilePath)}`);
 
-      chunkPaths.forEach(chunkPath => {
+      chunkPaths.forEach((chunkPath) => {
         fs.unlinkSync(chunkPath);
         console.log(`Deleted chunk file: ${relativePath(chunkPath)}`);
       });
